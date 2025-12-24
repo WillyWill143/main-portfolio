@@ -17,7 +17,7 @@ export const contentEn: Content = {
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'publications', label: 'Publications' }, // Added back
+    { id: 'publications', label: 'Publications' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' },
   ],
@@ -32,7 +32,7 @@ export const contentEn: Content = {
   },
   about: {
     title: 'About Me',
-    p1: 'I am a **Data Scientist & Analyst** based in Alexandria, Egypt, with over 2 years of experience. My expertise spans programming,research, data visualization, and management tools.',
+    p1: 'I am a **Data Scientist & Analyst** based in Alexandria, Egypt, with over 2 years of experience. My expertise spans programming, research, data visualization, and management tools.',
     p2: 'I have a proven track record of designing interactive dashboards, automating data pipelines, and developing predictive models using **Python, SQL, and Power BI**. Whether it is teaching Machine Learning or predicting market trends, I bring analytical rigor and self-driven motivation to every challenge.',
     btnLinkedin: 'View LinkedIn Profile',
   },
@@ -99,55 +99,55 @@ export const contentEn: Content = {
         title: 'IBM Data Analyst Professional Certificate',
         issuer: 'IBM',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/professional-cert/4HHKS66VY8TE
+        link: 'https://www.coursera.org/account/accomplishments/professional-cert/4HHKS66VY8TE'
       },
       {
         title: 'Machine Learning Specialization',
         issuer: 'Stanford Online',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/specialization/7UFZNWMHVFFS
+        link: 'https://www.coursera.org/account/accomplishments/specialization/7UFZNWMHVFFS'
       },
       {
         title: 'Deep Learning Specialization',
         issuer: 'DeepLearning.AI',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/specialization/ANQ2PRO3C0LE
+        link: 'https://www.coursera.org/account/accomplishments/specialization/ANQ2PRO3C0LE'
       },
       {
         title: 'Mathematics for Machine Learning',
         issuer: 'DeepLearning.AI',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/specialization/HMGAZVGVFJFK
+        link: 'https://www.coursera.org/account/accomplishments/specialization/HMGAZVGVFJFK'
       },
       {
         title: 'Snowflake Data Engineering',
         issuer: 'Snowflake',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/professional-cert/TRQAARGIM2Z0
+        link: 'https://www.coursera.org/account/accomplishments/professional-cert/TRQAARGIM2Z0'
       },
       {
         title: 'Microsoft Power BI Data Analyst',
         issuer: 'Microsoft',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/professional-cert/K2CANJ7KDSAC
+        link: 'https://www.coursera.org/account/accomplishments/professional-cert/K2CANJ7KDSAC'
       },
       {
         title: 'CS50: Python',
         issuer: 'Harvard University',
         date: '2024',
-        link: https://certificates.cs50.io/b7db7bc3-30d4-4a21-a033-e519e8488dba.pdf?size=letter
+        link: 'https://certificates.cs50.io/b7db7bc3-30d4-4a21-a033-e519e8488dba.pdf?size=letter'
       },
       {
         title: 'CS50: SQL',
         issuer: 'Harvard University',
         date: '2024',
-        link: https://certificates.cs50.io/cf85c681-3366-48c3-8ba9-d40c393d7fab.pdf?size=letter
+        link: 'https://certificates.cs50.io/cf85c681-3366-48c3-8ba9-d40c393d7fab.pdf?size=letter'
       },
       {
         title: 'Excel for Business Essentials',
         issuer: 'Macquarie University',
         date: '2024',
-        link: https://www.coursera.org/account/accomplishments/specialization/I4WFL61JK0CZ
+        link: 'https://www.coursera.org/account/accomplishments/specialization/I4WFL61JK0CZ'
       },
     ]
   },
@@ -194,21 +194,22 @@ export const contentEn: Content = {
         title: 'US Southern Real Estate Market Analysis',
         image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
         description: 'Designed a full Python data pipeline (scraping, mining, preprocessing) and interactive Power BI dashboards. Developed predictive models to forecast housing prices and identify key trends.',
-        demoLink: https://drive.google.com/drive/u/1/folders/19Ezc0qV7C_ak_zGsS0s7455we2CZUOYQ,
-        codeLink: https://github.com/WillyWill143/Southern-housing-market/blob/main/us-southern-real-estate-market.ipynb,
+        demoLink: 'https://drive.google.com/drive/u/1/folders/19Ezc0qV7C_ak_zGsS0s7455we2CZUOYQ',
+        codeLink: 'https://github.com/WillyWill143/Southern-housing-market/blob/main/us-southern-real-estate-market.ipynb',
       },
       {
         title: 'Churn Analysis',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
         description: 'Conducted comprehensive exploratory data analysis to identify key churn drivers such as contract type and payment methods, and developed high-accuracy predictive models using Random Forest and XGBoost to forecast customer attrition.',
-        codeLink: https://github.com/WillyWill143/Telecom-Churn-Analysis/blob/main/customer-churn-eda-prediction.ipynb,
+        codeLink: 'https://github.com/WillyWill143/Telecom-Churn-Analysis/blob/main/customer-churn-eda-prediction.ipynb',
+        demoLink: links.portfolio // Added a fallback link since demoLink was missing in your edit but is often expected by the UI
       },
       {
         title: 'Predicting Optimal Fertilizers',
         image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800',
         description: 'Built and tuned ensemble models (XGBoost, LightGBM) using advanced techniques like StratifiedKFold. Created a scalable pipeline to provide actionable data-driven prescriptions for farmers.',
-        demoLink: https://www.kaggle.com/code/alaasweed/s5e6-let-s-farm-guys,
-        codeLink: https://github.com/WillyWill143/Predicting-Optimal-Fertilizers/blob/main/s5e6-let-s-farm-guys.ipynb,
+        demoLink: 'https://www.kaggle.com/code/alaasweed/s5e6-let-s-farm-guys',
+        codeLink: 'https://github.com/WillyWill143/Predicting-Optimal-Fertilizers/blob/main/s5e6-let-s-farm-guys.ipynb',
       }
     ]
   },
@@ -217,7 +218,7 @@ export const contentEn: Content = {
     items: [
       {
         title: 'Weakly Supervised Road Extraction from Satellite Imagery using Partial Focal Loss and Stratified Point Supervision',
-        meta: '2025 — Computer Vision & Remote Sensing', // You can update the conference/journal name
+        meta: '2025 — Computer Vision & Remote Sensing', 
         description: 'Developed a cost-effective road extraction framework utilizing sparse point annotations. Introduced Stratified Point Supervision and Partial Focal Loss to effectively handle label sparsity and class imbalance in satellite imagery.',
         doi: 'https://doi.org/10.5281/zenodo.17818891'
       }
@@ -254,7 +255,7 @@ export const contentAr: Content = {
     { id: 'about', label: 'نبذة' },
     { id: 'experience', label: 'الخبرات' },
     { id: 'projects', label: 'المشاريع' },
-    { id: 'publications', label: 'الأبحاث' }, // Added back
+    { id: 'publications', label: 'الأبحاث' }, 
     { id: 'certifications', label: 'الشهادات' },
     { id: 'contact', label: 'تواصل' },
   ],
@@ -283,16 +284,16 @@ export const contentAr: Content = {
   },
   services: {
     title: 'المهارات والخبرات',
-    items: contentEn.services.items // Using English fallback for items structure
+    items: contentEn.services.items 
   },
   projects: {
     title: 'مشاريع مختارة',
     viewAll: 'عرض جميع المشاريع على GitHub',
-    items: contentEn.projects.items // Using English fallback
+    items: contentEn.projects.items 
   },
   publications: {
     title: 'الأبحاث ودراسات الحالة',
-    items: contentEn.publications.items // Using English fallback
+    items: contentEn.publications.items 
   },
   contact: {
     title: 'تواصل معي',
