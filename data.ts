@@ -32,8 +32,8 @@ export const contentEn: Content = {
   },
   about: {
     title: 'About Me',
-    p1: 'I am a **Data Scientist & Analyst** based in Alexandria, Egypt, with over 2 years of experience. My expertise spans programming, research, data visualization, and management tools.',
-    p2: 'I have a proven track record of designing interactive dashboards, automating data pipelines, and developing predictive models using **Python, SQL, and Power BI**. Whether it is teaching Machine Learning or predicting market trends, I bring analytical rigor and self-driven motivation to every challenge.',
+    p1: 'I am a Data Scientist & Analyst based in Alexandria, Egypt, with over 2 years of experience. My expertise spans programming, research, data visualization, and management tools.',
+    p2: 'I have a proven track record of designing interactive dashboards, automating data pipelines, and developing predictive models using Python, SQL, and Power BI. Whether it is teaching Machine Learning or predicting market trends, I bring analytical rigor and self-driven motivation to every challenge.',
     btnLinkedin: 'View LinkedIn Profile',
   },
   experience: {
