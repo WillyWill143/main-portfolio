@@ -8,7 +8,7 @@ export const links = {
   portfolio: 'https://www.datascienceportfol.io/alaasweed',
   email: 'alaamsweed143@gmail.com',
   phone: '+20 111 035 8631',
-  certificationsDrive: 'https://www.linkedin.com/in/alaa-sweed-390a38267/details/certifications/' // Pointing to LinkedIn Certs section as a fallback
+  certificationsDrive: 'https://www.linkedin.com/in/alaa-sweed-390a38267/details/certifications/'
 };
 
 export const contentEn: Content = {
@@ -17,7 +17,8 @@ export const contentEn: Content = {
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'certifications', label: 'Certifications' }, // Added explicit nav item
+    { id: 'publications', label: 'Publications' }, // Added back
+    { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' },
   ],
   hero: {
@@ -93,7 +94,6 @@ export const contentEn: Content = {
   },
   certifications: {
     title: 'Certifications',
-    // I have listed your top certs here. 
     items: [
       {
         title: 'IBM Data Analyst Professional Certificate',
@@ -149,40 +149,21 @@ export const contentEn: Content = {
         date: '2024',
         link: links.linkedin
       },
-      // You can copy/paste the block below to add more certifications manually if needed
-       {
+      {
         title: 'Data Science Methodology',
         issuer: 'IBM',
         date: '2024',
         link: links.linkedin
       },
-       {
+      {
         title: 'Databases and SQL for Data Science',
         issuer: 'IBM',
         date: '2024',
         link: links.linkedin
       },
-       {
+      {
         title: 'Data Analysis with Python',
         issuer: 'IBM',
-        date: '2024',
-        link: links.linkedin
-      },
-       {
-        title: 'Data Visualization with Python',
-        issuer: 'IBM',
-        date: '2024',
-        link: links.linkedin
-      },
-       {
-        title: 'Supervised Machine Learning',
-        issuer: 'Stanford / DeepLearning.AI',
-        date: '2024',
-        link: links.linkedin
-      },
-       {
-        title: 'Advanced Learning Algorithms',
-        issuer: 'Stanford / DeepLearning.AI',
         date: '2024',
         link: links.linkedin
       },
@@ -231,7 +212,7 @@ export const contentEn: Content = {
         title: 'US Southern Real Estate Market Analysis',
         image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
         description: 'Designed a full data pipeline (scraping, mining, preprocessing) and interactive Power BI dashboards. Developed predictive models to forecast housing prices and identify key trends.',
-        demoLink: links.portfolio, // Linking to your portfolio as demo
+        demoLink: links.portfolio,
         codeLink: links.github,
       },
       {
@@ -247,6 +228,23 @@ export const contentEn: Content = {
         description: 'Built and tuned ensemble models (XGBoost, LightGBM) using advanced techniques like StratifiedKFold. Created a scalable pipeline to provide actionable data-driven prescriptions for farmers.',
         demoLink: links.portfolio,
         codeLink: links.github,
+      }
+    ]
+  },
+  publications: {
+    title: 'Research & Case Studies',
+    items: [
+      {
+        title: 'Safe-Surf Cybersecurity Research',
+        meta: '2025 — Save the Children / Danish MFA',
+        description: 'Led a team of 8 in performing research and presenting solutions to stakeholders regarding cybersecurity challenges. (Volunteering Initiative)',
+        doi: 'Link to Project'
+      },
+      {
+        title: 'Telecom Churn Analysis & Driver Identification',
+        meta: '2025 — Statistical Analysis Case Study',
+        description: 'Conducted analysis using Python, Machine Learning, and Statistical techniques to identify key drivers of customer churn and provided data-driven recommendations.',
+        doi: 'Link to Project'
       }
     ]
   },
@@ -272,21 +270,16 @@ export const contentEn: Content = {
       email: links.email,
       location: 'Alexandria, Egypt'
     }
-  },
-  // Reusing certifications logic for a "View All" link in the footer or elsewhere if needed
-  publications: {
-    title: '', 
-    items: [] 
   }
 };
 
-// --- ARABIC CONTENT (Requires manual translation of descriptions) ---
 export const contentAr: Content = {
   nav: [
     { id: 'home', label: 'الرئيسية' },
     { id: 'about', label: 'نبذة' },
     { id: 'experience', label: 'الخبرات' },
     { id: 'projects', label: 'المشاريع' },
+    { id: 'publications', label: 'الأبحاث' }, // Added back
     { id: 'certifications', label: 'الشهادات' },
     { id: 'contact', label: 'تواصل' },
   ],
@@ -307,7 +300,7 @@ export const contentAr: Content = {
   },
   experience: {
     title: 'الخبرات المهنية',
-    items: contentEn.experience.items // Using English items as fallback until translated
+    items: contentEn.experience.items
   },
   certifications: {
     title: 'الشهادات',
@@ -315,67 +308,16 @@ export const contentAr: Content = {
   },
   services: {
     title: 'المهارات والخبرات',
-    items: [
-      {
-         title: 'علم البيانات', 
-         description: 'Scikit-learn, TensorFlow, PyTorch, XGBoost', 
-         iconPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' 
-      },
-      {
-         title: 'تحليل البيانات', 
-         description: 'Power BI, Excel, Tableau', 
-         iconPath: 'M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z' 
-      },
-      {
-         title: 'البرمجة وقواعد البيانات', 
-         description: 'Python, SQL, Docker', 
-         iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' 
-      },
-      // Duplicate other items from English and translate titles
-       {
-        title: 'Cloud & Big Data',
-        description: 'Snowflake, Azure, ETL.',
-        iconPath: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z'
-      },
-      {
-        title: 'Data Wrangling',
-        description: 'Scraping, Mining, Cleaning.',
-        iconPath: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z'
-      },
-      {
-        title: 'المهارات الشخصية',
-        description: 'التواصل، القيادة، حل المشكلات.',
-        iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2c0-.656-.126-1.283-.356-1.857M9 20H4v-2a3 3 0 015-2.236M9 20v-2c0-.656-.126-1.283-.356-1.857m-4.735-3.143A8 8 0 0112 12c.706 0 1.378.163 1.996.444M12 12c-3.197 0-6.236-.884-8-2.5m16 2.5a8 8 0 00-8-8 8 8 0 00-8 8'
-      }
-    ]
+    items: contentEn.services.items // Using English fallback for items structure
   },
   projects: {
     title: 'مشاريع مختارة',
     viewAll: 'عرض جميع المشاريع على GitHub',
-    items: [
-       // Translating titles only for now, descriptions fallback to English
-      {
-        title: 'US Southern Real Estate Market Analysis',
-        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
-        description: 'Designed a full data pipeline and interactive Power BI dashboards.',
-        demoLink: links.portfolio,
-        codeLink: links.github,
-      },
-      {
-        title: 'Customer Segmentation',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-        description: 'Conducted EDA and feature engineering in Python.',
-        demoLink: links.portfolio,
-        codeLink: links.github,
-      },
-      {
-        title: 'Predicting Optimal Fertilizers',
-        image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800',
-        description: 'Built and tuned ensemble models (XGBoost, LightGBM).',
-        demoLink: links.portfolio,
-        codeLink: links.github,
-      }
-    ]
+    items: contentEn.projects.items // Using English fallback
+  },
+  publications: {
+    title: 'الأبحاث ودراسات الحالة',
+    items: contentEn.publications.items // Using English fallback
   },
   contact: {
     title: 'تواصل معي',
@@ -399,6 +341,5 @@ export const contentAr: Content = {
       email: links.email,
       location: 'الإسكندرية، مصر'
     }
-  },
-  publications: { title: '', items: [] }
+  }
 };
