@@ -308,7 +308,7 @@ export const contentAr: Content = {
   },
   footer: {
     col1Title: "علاء سويد",
-    col1Text: 'عالم ومحلل بيانات. لنواصل الصعود.',
+    col1Text: 'عالم ومحلل بيانات. لبناء عالم رقمي افضل.',
     col2Title: 'روابط سريعة',
     col3Title: 'معلومات الاتصال',
     copyright: '© 2025 علاء سويد. جميع الحقوق محفوظة.',
