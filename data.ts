@@ -8,7 +8,7 @@ export const links = {
   portfolio: 'https://www.datascienceportfol.io/alaasweed',
   email: 'alaamsweed143@gmail.com',
   phone: '+20 111 035 8631',
-  certificationsDrive: 'https://www.linkedin.com/in/alaa-sweed-390a38267/details/certifications/'
+  certificationsDrive: 'https://drive.google.com/drive/folders/1TbJYKHYkNMr_Qnwdx-n0jMRlYzisjaXS?usp=sharing'
 };
 
 export const contentEn: Content = {
@@ -32,7 +32,7 @@ export const contentEn: Content = {
   },
   about: {
     title: 'About Me',
-    p1: 'I am a **Data Scientist & Analyst** based in Alexandria, Egypt, with over 2 years of experience. My expertise spans programming, data visualization, and management tools.',
+    p1: 'I am a **Data Scientist & Analyst** based in Alexandria, Egypt, with over 2 years of experience. My expertise spans programming,research, data visualization, and management tools.',
     p2: 'I have a proven track record of designing interactive dashboards, automating data pipelines, and developing predictive models using **Python, SQL, and Power BI**. Whether it is teaching Machine Learning or predicting market trends, I bring analytical rigor and self-driven motivation to every challenge.',
     btnLinkedin: 'View LinkedIn Profile',
   },
@@ -99,73 +99,55 @@ export const contentEn: Content = {
         title: 'IBM Data Analyst Professional Certificate',
         issuer: 'IBM',
         date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/professional-cert/4HHKS66VY8TE
       },
       {
         title: 'Machine Learning Specialization',
         issuer: 'Stanford Online',
         date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/specialization/7UFZNWMHVFFS
       },
       {
         title: 'Deep Learning Specialization',
         issuer: 'DeepLearning.AI',
         date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/specialization/ANQ2PRO3C0LE
       },
       {
         title: 'Mathematics for Machine Learning',
         issuer: 'DeepLearning.AI',
         date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/specialization/HMGAZVGVFJFK
       },
       {
         title: 'Snowflake Data Engineering',
         issuer: 'Snowflake',
         date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/professional-cert/TRQAARGIM2Z0
       },
       {
         title: 'Microsoft Power BI Data Analyst',
         issuer: 'Microsoft',
         date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/professional-cert/K2CANJ7KDSAC
       },
       {
-        title: 'CS50: Introduction to Python',
+        title: 'CS50: Python',
         issuer: 'Harvard University',
         date: '2024',
-        link: links.linkedin
+        link: https://certificates.cs50.io/b7db7bc3-30d4-4a21-a033-e519e8488dba.pdf?size=letter
       },
       {
-        title: 'CS50: Introduction to SQL',
+        title: 'CS50: SQL',
         issuer: 'Harvard University',
         date: '2024',
-        link: links.linkedin
+        link: https://certificates.cs50.io/cf85c681-3366-48c3-8ba9-d40c393d7fab.pdf?size=letter
       },
       {
         title: 'Excel for Business Essentials',
         issuer: 'Macquarie University',
         date: '2024',
-        link: links.linkedin
-      },
-      {
-        title: 'Data Science Methodology',
-        issuer: 'IBM',
-        date: '2024',
-        link: links.linkedin
-      },
-      {
-        title: 'Databases and SQL for Data Science',
-        issuer: 'IBM',
-        date: '2024',
-        link: links.linkedin
-      },
-      {
-        title: 'Data Analysis with Python',
-        issuer: 'IBM',
-        date: '2024',
-        link: links.linkedin
+        link: https://www.coursera.org/account/accomplishments/specialization/I4WFL61JK0CZ
       },
     ]
   },
@@ -174,7 +156,7 @@ export const contentEn: Content = {
     items: [
       {
         title: 'Data Science & ML',
-        description: 'Scikit-learn, TensorFlow, PyTorch, XGBoost, Keras, LightGBM, Predictive Modeling, Statistical Analysis.',
+        description: 'Scikit-learn, TensorFlow, PyTorch, XGBoost, Keras, CNNs, Predictive Modeling, Statistical Analysis.',
         iconPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
       },
       {
@@ -184,7 +166,7 @@ export const contentEn: Content = {
       },
       {
         title: 'Programming & DBs',
-        description: 'Python (Pandas, NumPy), SQL (MySQL, PostgreSQL, Snowflake), Docker, Flask, Streamlit.',
+        description: 'Python (Pandas, NumPy, Polars), SQL (MySQL, PostgreSQL, Snowflake), Docker, Flask, Streamlit, FastAPI.',
         iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
       },
       {
@@ -211,23 +193,22 @@ export const contentEn: Content = {
       {
         title: 'US Southern Real Estate Market Analysis',
         image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
-        description: 'Designed a full data pipeline (scraping, mining, preprocessing) and interactive Power BI dashboards. Developed predictive models to forecast housing prices and identify key trends.',
-        demoLink: links.portfolio,
-        codeLink: links.github,
+        description: 'Designed a full Python data pipeline (scraping, mining, preprocessing) and interactive Power BI dashboards. Developed predictive models to forecast housing prices and identify key trends.',
+        demoLink: https://drive.google.com/drive/u/1/folders/19Ezc0qV7C_ak_zGsS0s7455we2CZUOYQ,
+        codeLink: https://github.com/WillyWill143/Southern-housing-market/blob/main/us-southern-real-estate-market.ipynb,
       },
       {
-        title: 'Customer Segmentation',
+        title: 'Churn Analysis',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-        description: 'Conducted EDA and feature engineering in Python. Optimized a K-Means clustering model to identify 4 distinct high-value customer segments, directly supporting targeted marketing strategies.',
-        demoLink: links.portfolio,
-        codeLink: links.github,
+        description: 'Conducted comprehensive exploratory data analysis to identify key churn drivers such as contract type and payment methods, and developed high-accuracy predictive models using Random Forest and XGBoost to forecast customer attrition.',
+        codeLink: https://github.com/WillyWill143/Telecom-Churn-Analysis/blob/main/customer-churn-eda-prediction.ipynb,
       },
       {
         title: 'Predicting Optimal Fertilizers',
         image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800',
         description: 'Built and tuned ensemble models (XGBoost, LightGBM) using advanced techniques like StratifiedKFold. Created a scalable pipeline to provide actionable data-driven prescriptions for farmers.',
-        demoLink: links.portfolio,
-        codeLink: links.github,
+        demoLink: https://www.kaggle.com/code/alaasweed/s5e6-let-s-farm-guys,
+        codeLink: https://github.com/WillyWill143/Predicting-Optimal-Fertilizers/blob/main/s5e6-let-s-farm-guys.ipynb,
       }
     ]
   },
@@ -235,16 +216,10 @@ export const contentEn: Content = {
     title: 'Research & Case Studies',
     items: [
       {
-        title: 'Safe-Surf Cybersecurity Research',
-        meta: '2025 — Save the Children / Danish MFA',
-        description: 'Led a team of 8 in performing research and presenting solutions to stakeholders regarding cybersecurity challenges. (Volunteering Initiative)',
-        doi: 'Link to Project'
-      },
-      {
-        title: 'Telecom Churn Analysis & Driver Identification',
-        meta: '2025 — Statistical Analysis Case Study',
-        description: 'Conducted analysis using Python, Machine Learning, and Statistical techniques to identify key drivers of customer churn and provided data-driven recommendations.',
-        doi: 'Link to Project'
+        title: 'Weakly Supervised Road Extraction from Satellite Imagery using Partial Focal Loss and Stratified Point Supervision',
+        meta: '2025 — Computer Vision & Remote Sensing', // You can update the conference/journal name
+        description: 'Developed a cost-effective road extraction framework utilizing sparse point annotations. Introduced Stratified Point Supervision and Partial Focal Loss to effectively handle label sparsity and class imbalance in satellite imagery.',
+        doi: 'https://doi.org/10.5281/zenodo.17818891'
       }
     ]
   },
