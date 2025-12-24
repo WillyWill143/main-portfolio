@@ -16,7 +16,6 @@ const LinkedInIcon = () => (
 const GitHubIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
 );
-// Kaggle Icon added here
 const KaggleIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.283.141h-3.139c-.187 0-.351-.082-.493-.248l-5.178-6.589-1.213 1.61v4.94c0 .101-.026.182-.078.242-.052.06-.126.09-.223.09h-3.41c-.097 0-.171-.03-.223-.09-.052-.06-.078-.141-.078-.242V.348c0-.101.026-.182.078-.242.052-.06.126-.09.223-.09h3.41c.097 0 .171.03.223.09.052.06.078.141.078.242v15.908l7.262-8.895c.164-.202.345-.303.542-.303h3.585c.119 0 .204.041.255.123.05.082.047.173-.01.272l-5.741 6.845 6.014 9.172c.074.11.089.21.045.3z"/></svg>
 );
@@ -42,7 +41,6 @@ const ParticleBackground = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = canvas?.parentElement;
-
     if (!canvas || !container) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -62,11 +60,9 @@ const ParticleBackground = () => {
       for (let i = 0; i < particleCount; i++) {
         const typeRoll = Math.random();
         let type: 'dot' | 'dna' | 'hexagon' | 'binary' = 'dot';
-        
         if (typeRoll > 0.95) type = 'dna';
         else if (typeRoll > 0.90) type = 'hexagon';
         else if (typeRoll > 0.85) type = 'binary';
-
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -85,11 +81,9 @@ const ParticleBackground = () => {
       particles.forEach((p, i) => {
         p.x += p.vx;
         p.y += p.vy;
-
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        // CHANGED COLOR TO EMERALD (GREEN)
         ctx.fillStyle = 'rgba(16, 185, 129, 0.5)';
         ctx.strokeStyle = 'rgba(16, 185, 129, 0.5)';
         ctx.lineWidth = 1;
@@ -113,13 +107,10 @@ const ParticleBackground = () => {
             ctx.beginPath();
             const h = p.size * 5;
             const w = p.size * 2;
-            
             ctx.moveTo(p.x - w, p.y - h);
             ctx.bezierCurveTo(p.x + w, p.y - h/2, p.x - w, p.y + h/2, p.x + w, p.y + h);
-            
             ctx.moveTo(p.x + w, p.y - h);
             ctx.bezierCurveTo(p.x - w, p.y - h/2, p.x + w, p.y + h/2, p.x - w, p.y + h);
-            
             ctx.stroke();
         } else {
             ctx.beginPath();
@@ -132,10 +123,8 @@ const ParticleBackground = () => {
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-
           if (dist < 100) {
             ctx.beginPath();
-            // CHANGED LINE COLOR TO EMERALD
             ctx.strokeStyle = `rgba(16, 185, 129, ${0.2 * (1 - dist / 100)})`;
             ctx.lineWidth = 1;
             ctx.moveTo(p.x, p.y);
@@ -144,14 +133,12 @@ const ParticleBackground = () => {
           }
         }
       });
-
       animationFrameId = requestAnimationFrame(draw);
     };
 
     resize();
     window.addEventListener('resize', resize);
     draw();
-
     return () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
@@ -159,10 +146,7 @@ const ParticleBackground = () => {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"
-    />
+    <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"/>
   );
 };
 
@@ -174,9 +158,7 @@ const Typewriter = ({ words }: { words: string[] }) => {
   const [blink, setBlink] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setBlink((prev) => !prev);
-    }, 500);
+    const timeout = setTimeout(() => { setBlink((prev) => !prev); }, 500);
     return () => clearTimeout(timeout);
   }, [blink]);
 
@@ -187,22 +169,17 @@ const Typewriter = ({ words }: { words: string[] }) => {
     const pauseTime = 2000;
 
     if (subIndex === words[index].length + 1 && !reverse) {
-      const timeout = setTimeout(() => {
-        setReverse(true);
-      }, pauseTime);
+      const timeout = setTimeout(() => { setReverse(true); }, pauseTime);
       return () => clearTimeout(timeout);
     }
-
     if (subIndex === 0 && reverse) {
       setReverse(false);
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
-
     const timeout = setTimeout(() => {
       setSubIndex((prev) => prev + (reverse ? -1 : 1));
     }, reverse ? deleteSpeed : typeSpeed);
-
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse, words]);
 
@@ -217,7 +194,6 @@ const Typewriter = ({ words }: { words: string[] }) => {
 // 3D Tilt Wrapper
 const Tilt3D: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
   const ref = useRef<HTMLDivElement>(null);
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
@@ -227,19 +203,12 @@ const Tilt3D: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
     const yRotation = (x - rect.width / 2) / rect.width * 2;
     ref.current.style.transform = `perspective(1000px) scale(1.01) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
   };
-
   const handleMouseLeave = () => {
     if (!ref.current) return;
     ref.current.style.transform = 'perspective(1000px) scale(1) rotateX(0) rotateY(0)';
   };
-
   return (
-    <div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`transition-transform duration-200 ease-out transform-style-preserve-3d will-change-transform ${className}`}
-    >
+    <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className={`transition-transform duration-200 ease-out transform-style-preserve-3d will-change-transform ${className}`}>
       {children}
     </div>
   );
@@ -248,7 +217,6 @@ const Tilt3D: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
 const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { setIsVisible(entry.isIntersecting); },
@@ -257,16 +225,8 @@ const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
-
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible 
-          ? 'opacity-100 translate-y-0 rotate-x-0' 
-          : 'opacity-0 translate-y-12 rotate-x-12 perspective-1000'
-      } ${className}`}
-    >
+    <div ref={ref} className={`transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0 rotate-x-0' : 'opacity-0 translate-y-12 rotate-x-12 perspective-1000'} ${className}`}>
       {children}
     </div>
   );
@@ -352,59 +312,29 @@ export default function App() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-800 h-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center h-full">
-          <a 
-            href="#home" 
-            onClick={(e) => scrollToSection(e, 'home')}
-            className="text-2xl md:text-3xl font-bold tracking-tight text-gray-100 hover:text-emerald-500 transition"
-          >
+          <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-2xl md:text-3xl font-bold tracking-tight text-gray-100 hover:text-emerald-500 transition">
             {lang === 'en' ? 'Alaa.' : 'علاء.'}
           </a>
-
           <nav className="hidden md:flex gap-6 text-sm font-medium">
             {content.nav.map((item) => (
-              <a 
-                key={item.id} 
-                href={`#${item.id}`} 
-                onClick={(e) => scrollToSection(e, item.id)}
-                className={`transition-all duration-200 p-2 rounded-lg relative group cursor-pointer ${activeSection === item.id ? 'text-emerald-500 font-bold' : 'text-gray-300 hover:text-emerald-500'}`}
-              >
+              <a key={item.id} href={`#${item.id}`} onClick={(e) => scrollToSection(e, item.id)} className={`transition-all duration-200 p-2 rounded-lg relative group cursor-pointer ${activeSection === item.id ? 'text-emerald-500 font-bold' : 'text-gray-300 hover:text-emerald-500'}`}>
                 {item.label}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-200 group-hover:w-full ${activeSection === item.id ? 'w-full' : ''}`}></span>
               </a>
             ))}
           </nav>
-
           <div className="flex items-center gap-3">
              <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-gray-300 hover:text-white transition">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
              </button>
-
-            <button
-              onClick={() => toggleLang('en')}
-              className={`px-3 py-1 rounded-full text-xs md:text-sm font-semibold border transition ${lang === 'en' ? 'bg-emerald-500 text-gray-900 border-emerald-500' : 'text-gray-300 border-gray-600 hover:border-emerald-500'}`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => toggleLang('ar')}
-              className={`px-3 py-1 rounded-full text-xs md:text-sm font-semibold border transition ${lang === 'ar' ? 'bg-emerald-500 text-gray-900 border-emerald-500' : 'text-gray-300 border-gray-600 hover:border-emerald-500'}`}
-            >
-              AR
-            </button>
+            <button onClick={() => toggleLang('en')} className={`px-3 py-1 rounded-full text-xs md:text-sm font-semibold border transition ${lang === 'en' ? 'bg-emerald-500 text-gray-900 border-emerald-500' : 'text-gray-300 border-gray-600 hover:border-emerald-500'}`}>EN</button>
+            <button onClick={() => toggleLang('ar')} className={`px-3 py-1 rounded-full text-xs md:text-sm font-semibold border transition ${lang === 'ar' ? 'bg-emerald-500 text-gray-900 border-emerald-500' : 'text-gray-300 border-gray-600 hover:border-emerald-500'}`}>AR</button>
           </div>
         </div>
-
         {menuOpen && (
             <nav className="md:hidden bg-gray-900 border-t border-gray-800 p-4 flex flex-col gap-4 text-start">
                  {content.nav.map((item) => (
-                    <a 
-                        key={item.id} 
-                        href={`#${item.id}`} 
-                        onClick={(e) => scrollToSection(e, item.id)}
-                        className={`block p-2 rounded cursor-pointer ${activeSection === item.id ? 'bg-gray-800 text-emerald-500' : 'text-gray-300'}`}
-                    >
+                    <a key={item.id} href={`#${item.id}`} onClick={(e) => scrollToSection(e, item.id)} className={`block p-2 rounded cursor-pointer ${activeSection === item.id ? 'bg-gray-800 text-emerald-500' : 'text-gray-300'}`}>
                         {item.label}
                     </a>
                 ))}
@@ -417,7 +347,6 @@ export default function App() {
         {/* HERO */}
         <section id="home" className="relative py-20 md:py-32 flex items-center min-h-screen overflow-hidden">
             <ParticleBackground />
-
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <Reveal className="space-y-6 md:space-y-8 order-2 md:order-1 text-center md:text-start">
                 <p className="text-xl md:text-2xl text-emerald-500 font-semibold tracking-wide text-center md:text-start">{content.hero.greeting}</p>
@@ -430,45 +359,27 @@ export default function App() {
                 <p className="hero-subtitle text-lg text-gray-400 max-w-xl leading-relaxed mx-auto md:mx-0 text-center md:text-start">
                   {content.hero.description}
                 </p>
-                
                 <div className="flex justify-center md:justify-start">
                     <SocialIcons />
                 </div>
-
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
-                  <a 
-                    href="#projects" 
-                    onClick={(e) => scrollToSection(e, 'projects')}
-                    className="px-8 py-3 rounded-full font-semibold text-gray-900 bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:bg-emerald-400 hover:shadow-[0_0_25px_rgba(16,185,129,0.7)] hover:-translate-y-1 transition duration-300 inline-flex items-center gap-2 cursor-pointer btn"
-                  >
+                  <a href="#projects" onClick={(e) => scrollToSection(e, 'projects')} className="px-8 py-3 rounded-full font-semibold text-gray-900 bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:bg-emerald-400 hover:shadow-[0_0_25px_rgba(16,185,129,0.7)] hover:-translate-y-1 transition duration-300 inline-flex items-center gap-2 cursor-pointer btn">
                     <span>{content.hero.btnProjects}</span>
                     <ExternalLink />
                   </a>
-                  <a 
-                    href="#about" 
-                    onClick={(e) => scrollToSection(e, 'about')}
-                    className="px-6 py-3 rounded-full font-semibold border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-gray-900 transition duration-300 cursor-pointer inline-flex items-center gap-2 btn"
-                  >
+                  <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="px-6 py-3 rounded-full font-semibold border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-gray-900 transition duration-300 cursor-pointer inline-flex items-center gap-2 btn">
                     <span>{content.hero.btnAbout}</span>
                     <ChevronRight />
                   </a>
                 </div>
               </Reveal>
-
               <div className="flex justify-center items-center p-4 md:p-8 order-1 md:order-2">
                 <div className="relative w-72 h-72 md:w-96 md:h-96 animate-float">
                   <div className="absolute -inset-10 bg-emerald-500/20 blur-3xl rounded-full pointer-events-none"></div>
                   <div className="absolute -inset-4 bg-emerald-500/30 blur-2xl rounded-full pointer-events-none animate-pulse"></div>
-                  
-                  {/* Updated Avatar */}
                   <div className="w-full h-full rounded-full border-4 border-gray-800 shadow-2xl bg-gray-800 relative z-10 ring-4 ring-emerald-500/30 overflow-hidden flex items-center justify-center">
                     <div className="w-full h-full rounded-full overflow-hidden">
-                      <img
-                        src="https://i.ibb.co/hJ8QGbKq/Me-Profile.jpg"
-                        alt="Alaa Sweed"
-                        className="w-full h-full object-cover rounded-full transform hover:scale-110 transition duration-700"
-                        loading="eager"
-                      />
+                      <img src="https://i.ibb.co/hJ8QGbKq/Me-Profile.jpg" alt="Alaa Sweed" className="w-full h-full object-cover rounded-full transform hover:scale-110 transition duration-700" loading="eager" />
                     </div>
                   </div>
                 </div>
@@ -487,12 +398,7 @@ export default function App() {
                    <div className="absolute top-0 right-0 rtl:left-0 rtl:right-auto w-20 h-20 bg-emerald-500 blur-3xl opacity-10 rounded-full"></div>
                    <p className="text-lg text-gray-300 mb-6 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.about.p1 }} />
                    <p className="text-lg text-gray-300 mb-8 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.about.p2 }} />
-                   <a
-                    href={links.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-emerald-500 font-semibold hover:text-gray-100 transition-colors group"
-                  >
+                   <a href={links.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-emerald-500 font-semibold hover:text-gray-100 transition-colors group">
                     <span>{content.about.btnLinkedin}</span>
                     <span className="transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition"><ExternalLink /></span>
                   </a>
@@ -501,7 +407,7 @@ export default function App() {
             </div>
         </section>
 
-        {/* SERVICES (SKILLS) */}
+        {/* SERVICES */}
         <section id="services" className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16">
@@ -531,23 +437,13 @@ export default function App() {
              <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16">
                 <span className="border-b-4 border-emerald-500 pb-2">{content.experience.title}</span>
              </h2>
-             
              <div className="max-w-4xl mx-auto space-y-8 relative before:absolute before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-transparent before:left-5 md:before:left-1/2 md:before:-translate-x-1/2 rtl:before:left-auto rtl:before:right-5 rtl:md:before:right-auto rtl:md:before:left-1/2">
                {content.experience.items.map((item, idx) => (
                  <Reveal key={idx} className="relative flex items-center justify-center w-full group">
-                   
                    <div className="timeline-dot absolute flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 bg-gray-900 group-hover:border-emerald-500 group-hover:bg-emerald-500/10 transition shrink-0 shadow shadow-gray-900 z-10 left-5 rtl:right-5 -translate-x-1/2 rtl:translate-x-1/2">
                      <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
                    </div>
-                   
-                   <div className={`
-                        w-full md:w-1/2 flex flex-col relative
-                        pl-12 rtl:pl-0 rtl:pr-12 md:pl-0 rtl:md:pr-0 
-                        ${idx % 2 === 0 
-                            ? 'md:mr-auto md:ml-0 md:pr-16 md:pl-0 md:items-end rtl:md:ml-auto rtl:md:mr-0 rtl:md:pl-16 rtl:md:pr-0' 
-                            : 'md:ml-auto md:mr-0 md:pl-16 md:pr-0 md:items-start rtl:md:mr-auto rtl:md:ml-0 rtl:md:pr-16 rtl:md:pl-0' 
-                        }
-                   `}>
+                   <div className={`w-full md:w-1/2 flex flex-col relative pl-12 rtl:pl-0 rtl:pr-12 md:pl-0 rtl:md:pr-0 ${idx % 2 === 0 ? 'md:mr-auto md:ml-0 md:pr-16 md:pl-0 md:items-end rtl:md:ml-auto rtl:md:mr-0 rtl:md:pl-16 rtl:md:pr-0' : 'md:ml-auto md:mr-0 md:pl-16 md:pr-0 md:items-start rtl:md:mr-auto rtl:md:ml-0 rtl:md:pr-16 rtl:md:pl-0'}`}>
                       <Tilt3D className="w-full p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-emerald-500 transition shadow-lg text-start">
                          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                            <h3 className="font-bold text-lg text-gray-100 group-hover:text-emerald-500 transition">{item.role}</h3>
@@ -578,12 +474,7 @@ export default function App() {
                   <Reveal key={idx} className="h-full">
                      <Tilt3D className="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.3)] hover:scale-105 hover:border-emerald-500/50 hover:z-10 relative transition-all duration-300 flex flex-col group h-full text-start">
                         <div className="relative overflow-hidden h-52">
-                          <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
-                              loading="lazy"
-                          />
+                          <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" loading="lazy" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
                         </div>
                         <div className="p-6 flex flex-col flex-grow relative">
@@ -591,14 +482,10 @@ export default function App() {
                           <p className="text-gray-400 mb-6 flex-grow text-sm leading-relaxed line-clamp-3">{project.description}</p>
                           <div className="flex flex-wrap gap-3 mt-auto">
                             {project.demoLink && (
-                               <a href={project.demoLink} target="_blank" rel="noreferrer" className="flex-1 text-center py-2 rounded-lg bg-emerald-500 text-gray-900 font-semibold text-sm hover:bg-emerald-400 transition shadow-lg btn">
-                                  Demo
-                                </a>
+                               <a href={project.demoLink} target="_blank" rel="noreferrer" className="flex-1 text-center py-2 rounded-lg bg-emerald-500 text-gray-900 font-semibold text-sm hover:bg-emerald-400 transition shadow-lg btn">Demo</a>
                             )}
                             {project.codeLink && (
-                              <a href={project.codeLink} target="_blank" rel="noreferrer" className="flex-1 text-center py-2 rounded-lg border border-gray-600 text-gray-100 font-semibold text-sm hover:border-emerald-500 hover:text-emerald-500 transition btn">
-                                Code
-                              </a>
+                              <a href={project.codeLink} target="_blank" rel="noreferrer" className="flex-1 text-center py-2 rounded-lg border border-gray-600 text-gray-100 font-semibold text-sm hover:border-emerald-500 hover:text-emerald-500 transition btn">Code</a>
                             )}
                           </div>
                         </div>
@@ -607,12 +494,7 @@ export default function App() {
                 ))}
               </div>
               <div className="text-center mt-12">
-                <a
-                  href={links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-500 transition-colors font-semibold"
-                >
+                <a href={links.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-500 transition-colors font-semibold">
                   <span>{content.projects.viewAll}</span>
                   <ExternalLink />
                 </a>
@@ -620,8 +502,34 @@ export default function App() {
             </div>
         </section>
 
+        {/* PUBLICATIONS - RESTORED & POPULATED FROM CV */}
+        <section id="publications" className="py-20 bg-gray-900/50">
+             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16">
+                  <span className="border-b-4 border-emerald-500 pb-2">{content.publications.title}</span>
+              </h2>
+              <div className="space-y-6">
+                {content.publications.items.map((pub, idx) => (
+                  <Reveal key={idx} className="w-full">
+                     <Tilt3D className="bg-gray-800/40 backdrop-blur rounded-xl p-6 border-l-4 rtl:border-l-0 rtl:border-r-4 border-emerald-500 hover:bg-gray-800 transition duration-300 text-start">
+                        <div className="flex flex-col">
+                          <h3 className="text-xl font-bold text-gray-100 mb-2">{pub.title}</h3>
+                          <p className="text-xs text-emerald-500 font-mono mb-3 uppercase tracking-wider">{pub.meta}</p>
+                          <p className="text-gray-300 mb-4 text-sm leading-relaxed">{pub.description}</p>
+                          <a href={links.portfolio} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-emerald-500 text-sm inline-flex items-center gap-1 transition">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            View Project Case Study
+                          </a>
+                        </div>
+                     </Tilt3D>
+                  </Reveal>
+                ))}
+              </div>
+             </div>
+        </section>
+
         {/* CERTIFICATIONS */}
-        <section id="certifications" className="py-20 bg-gray-900/50">
+        <section id="certifications" className="py-20">
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-100 text-center mb-12">
                    <span className="border-b-4 border-emerald-500 pb-2">{content.certifications.title}</span>
@@ -643,7 +551,6 @@ export default function App() {
                      </Reveal>
                    ))}
                 </div>
-                {/* View Rest Link */}
                 <div className="text-center mt-12">
                     <a href={links.certificationsDrive} target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 rounded-full border border-gray-600 text-gray-300 hover:border-emerald-500 hover:text-emerald-500 transition-colors font-semibold">
                         <span>View rest of 50+ certifications</span>
@@ -654,91 +561,40 @@ export default function App() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="py-20">
+        <section id="contact" className="py-20 bg-gray-900/50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16">
                  <span className="border-b-4 border-emerald-500 pb-2">{content.contact.title}</span>
               </h2>
-
               <Reveal className="max-w-2xl mx-auto">
                 <Tilt3D className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700">
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="group">
                             <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1 ml-1 rtl:mr-1 rtl:ml-0 group-focus-within:text-emerald-500 transition text-start">{content.contact.placeholders.name}</label>
-                            <input
-                              type="text"
-                              name="name"
-                              id="name"
-                              value={formData.name}
-                              onChange={handleInputChange}
-                              placeholder={content.contact.placeholders.name}
-                              className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start"
-                              required
-                            />
+                            <input type="text" name="name" id="name" value={formData.name} onChange={handleInputChange} placeholder={content.contact.placeholders.name} className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start" required />
                         </div>
                         <div className="group">
                             <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1 ml-1 rtl:mr-1 rtl:ml-0 group-focus-within:text-emerald-500 transition text-start">{content.contact.placeholders.email}</label>
-                            <input
-                              type="email"
-                              name="email"
-                              id="email"
-                              value={formData.email}
-                              onChange={handleInputChange}
-                              placeholder={content.contact.placeholders.email}
-                              className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start"
-                              required
-                            />
+                            <input type="email" name="email" id="email" value={formData.email} onChange={handleInputChange} placeholder={content.contact.placeholders.email} className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start" required />
                         </div>
                       </div>
-                      
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                          <div className="group">
                             <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1 ml-1 rtl:mr-1 rtl:ml-0 group-focus-within:text-emerald-500 transition text-start">{content.contact.placeholders.phone}</label>
-                            <input
-                              type="tel"
-                              name="phone"
-                              id="phone"
-                              value={formData.phone}
-                              onChange={handleInputChange}
-                              placeholder={content.contact.placeholders.phone}
-                              className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start"
-                            />
+                            <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleInputChange} placeholder={content.contact.placeholders.phone} className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start" />
                          </div>
                          <div className="group">
                             <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-1 ml-1 rtl:mr-1 rtl:ml-0 group-focus-within:text-emerald-500 transition text-start">{content.contact.placeholders.subject}</label>
-                            <input
-                              type="text"
-                              name="subject"
-                              id="subject"
-                              value={formData.subject}
-                              onChange={handleInputChange}
-                              placeholder={content.contact.placeholders.subject}
-                              className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start"
-                            />
+                            <input type="text" name="subject" id="subject" value={formData.subject} onChange={handleInputChange} placeholder={content.contact.placeholders.subject} className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start" />
                          </div>
                       </div>
-                      
                       <div className="group">
                         <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-1 ml-1 rtl:mr-1 rtl:ml-0 group-focus-within:text-emerald-500 transition text-start">{content.contact.placeholders.message}</label>
-                        <textarea
-                          name="message"
-                          id="message"
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          placeholder={content.contact.placeholders.message}
-                          rows={5}
-                          className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start"
-                          required
-                        ></textarea>
+                        <textarea name="message" id="message" value={formData.message} onChange={handleInputChange} placeholder={content.contact.placeholders.message} rows={5} className="w-full p-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-start" required></textarea>
                       </div>
-
                       <div className="text-center pt-2">
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full md:w-auto px-10 py-3 rounded-full font-bold text-gray-900 bg-emerald-500 shadow-lg hover:bg-emerald-400 hover:shadow-emerald-500/50 hover:-translate-y-1 transition duration-200 inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed btn"
-                        >
+                        <button type="submit" disabled={isSubmitting} className="w-full md:w-auto px-10 py-3 rounded-full font-bold text-gray-900 bg-emerald-500 shadow-lg hover:bg-emerald-400 hover:shadow-emerald-500/50 hover:-translate-y-1 transition duration-200 inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed btn">
                           <span>{isSubmitting ? 'Sending...' : content.contact.btnSend}</span>
                           <svg className="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                         </button>
@@ -754,7 +610,6 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 py-16 relative z-10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-start">
-          
           <div className="space-y-6 lg:col-span-2">
             <h3 className="text-3xl font-bold text-gray-100 tracking-tight">Alaa<span className="text-emerald-500">.</span></h3>
             <p className="text-gray-400 text-base leading-relaxed max-w-sm mx-auto md:mx-0 text-center md:text-start">{content.footer.col1Text}</p>
@@ -762,7 +617,6 @@ export default function App() {
                <SocialIcons className="gap-5" />
             </div>
           </div>
-          
           <div className="space-y-6">
              <h3 className="text-lg font-bold text-gray-100 uppercase tracking-wider">{content.footer.col2Title}</h3>
              <ul className="text-gray-400 space-y-3 text-sm font-medium">
@@ -771,7 +625,6 @@ export default function App() {
                 ))}
              </ul>
           </div>
-
           <div className="space-y-6">
             <h3 className="text-lg font-bold text-gray-100 uppercase tracking-wider">{content.footer.col3Title}</h3>
             <ul className="text-gray-400 space-y-4 text-sm">
@@ -802,15 +655,8 @@ export default function App() {
       </footer>
 
       {/* Floating Action Button */}
-      <a
-        href="#contact"
-        onClick={(e) => scrollToSection(e, 'contact')}
-        className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.5)] z-40 text-gray-900 hover:scale-110 hover:bg-white transition-all duration-300 cursor-pointer"
-        aria-label="Contact"
-      >
-        <svg className="w-6 h-6 rtl:rotate-180" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.13C2.42 12.552 2 11.234 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clipRule="evenodd"></path>
-        </svg>
+      <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.5)] z-40 text-gray-900 hover:scale-110 hover:bg-white transition-all duration-300 cursor-pointer" aria-label="Contact">
+        <svg className="w-6 h-6 rtl:rotate-180" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.13C2.42 12.552 2 11.234 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clipRule="evenodd"></path></svg>
       </a>
     </div>
   );
